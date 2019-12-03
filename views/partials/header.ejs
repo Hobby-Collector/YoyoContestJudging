@@ -25,11 +25,11 @@
         <div class="navbar">
           <ul class=" navbar-nav navbar-left">
             <li><a <%if(active=="Yo-yo Contests"){%>class="active" <%}%> href="#">Home</a></li>
-            <li><a <%if(active=="About"){%>class="active" <%}%> href="#">About</a></li>
+            <li><a <%if(active=="Profile"){%>class="active" <%}%> href="#">Profile</a></li>
             <li><a <%if(active=="Work"){%>class="active" <%}%> href="#">Work</a></li>
           </ul>
               <ul class="navbar-nav navbar-right"><li>
-                  <% if (user) { %>
+                  <% if (currentUser) { %>
                       <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
                   <% } else { %>
                       <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>

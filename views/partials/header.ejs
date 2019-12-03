@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%=title%></title>
+  <!-- Google Icon Fonts used by Materialize -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Materialize CSS Framework -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="stylesheets/style.css" />
+  <!-- JavaScript for Materialize -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+
+<body>
+  <header class= "headerNav"role="banner">
+    <a href="#">
+      <img id="NYYL-Logo" src="https://yoyocontest.com/wp-content/uploads/2016/04/nyyl-logo-1024sq.png" width="175"
+        alt="National Yoyo League">
+    </a>
+
+    <nav id="navbar-primary" class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+
+        <div class="navbar">
+          <ul class=" navbar-nav navbar-left">
+            <li><a <%if(active=="Yo-yo Contests"){%>class="active" <%}%> href="#">Home</a></li>
+            <li><a <%if(active=="About"){%>class="active" <%}%> href="#">About</a></li>
+            <li><a <%if(active=="Work"){%>class="active" <%}%> href="#">Work</a></li>
+          </ul>
+              <ul class="navbar-nav navbar-right"><li>
+                  <% if (user) { %>
+                      <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
+                  <% } else { %>
+                      <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
+                  <% } %>
+                </li>
+              </ul>
+        </div>
+      </div>
+    </nav>
+  </header>

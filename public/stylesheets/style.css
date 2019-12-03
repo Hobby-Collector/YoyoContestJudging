@@ -1,8 +1,40 @@
+.headerNav{
+  background: cornsilk;
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: black;
 }
 
-a {
-  color: #00B7FF;
+#NYYL-Logo {
+  display: block;
+  margin: 20px auto;
+}
+
+.navbar {
+  width: 100%;
+  text-align: center;
+  background: rgb(238, 10, 10);
+  border: none;
+  float: left;
+}
+
+.navbar li {
+  display: inline-block;
+  float: none;
+}
+
+.navbar a {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.navbar-left{
+  float: left;
+}
+
+.navbar-right{
+  float: right;
 }

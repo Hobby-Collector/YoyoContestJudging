@@ -1,12 +1,17 @@
 var mongoose = require('mongoose');
 
 var userSchema = new mongoose.Schema({
+  //these are general
   name: String,
   email: String,
-  authorizationKey: String,
   avatar: String,
-  contests: [contestSchema],
-  googleId: String
+  googleId: String,
+
+  authorizationKey: String,
+  contests: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Contest'
+  }]
 }, {
   timestamps: true
 });

@@ -15,14 +15,14 @@
     <%}else{%>
     <form id="new-form" action="/users" method="POST">
         <label for="Contests">Register for a contest:</label>
-        <select name="Contests" id="">
+        <select name="Contests">
             <option value="not this one">not this one</option>
+            <option value="">blank</option>
             <%contest.forEach(cont => {%>
             <option value="<%= cont.name%>"><%= cont.name%></option>
             <%});%>
-        </select><br>
+        </select><br><br>
         <input type="submit" value="join contest">
     </form>
     <%}%>
-</main>
 <%- include('../partials/footer') %>

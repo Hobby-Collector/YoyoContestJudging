@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Materialize CSS Framework -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" href="stylesheets/style.css" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
   <!-- JavaScript for Materialize -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
@@ -24,12 +24,14 @@
 
         <div class="navbar">
           <ul class=" navbar-nav navbar-left">
-            <li><a <%if(active=="Yo-yo Contests"){%>class="active" <%}%> href="#">Home</a></li>
-            <li><a <%if(active=="Profile"){%>class="active" <%}%> href="#">Profile</a></li>
-            <li><a <%if(active=="Work"){%>class="active" <%}%> href="#">Work</a></li>
+            <li><a <%if(title==="Yo-yo Contests"){%>class="active" <%}%> href="/">Home</a></li>
+            <% if (user) { %>
+              <li><a <%if(title==="Profile"){%>class="active" <%}%> href="/users/<%=user._id%>">Profile</a></li>
+            <% } %>
+            <li><a <%if(title==="Results"){%>class="active" <%}%> href="#">Results</a></li>
           </ul>
               <ul class="navbar-nav navbar-right"><li>
-                  <% if (currentUser) { %>
+                  <% if (user) { %>
                       <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
                   <% } else { %>
                       <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>

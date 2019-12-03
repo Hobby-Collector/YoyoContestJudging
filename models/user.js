@@ -7,7 +7,10 @@ var userSchema = new mongoose.Schema({
   avatar: String,
   googleId: String,
 
-  authorizationKey: String,
+  authorizationKey: {
+    type:Boolean,
+    default:false
+  },
   contests: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Contest'

@@ -1,9 +1,28 @@
-<%- include('./partials/header',{active: title}) %>
+<%- include('../partials/header') %>
 
-<body>
-<select name="Contests" id="">
-  <option value=""></option>
-</select>
-</body>
+<main class="viewBody">
 
-<%- include('./partials/footer') %>
+    <img src="<%= user.avatar %>" alt="Profile Picture" class="circle responsive-img">
+    <h1><%= user.name%></h1>
+
+    <%if (user.contests) {user.contests.forEach(contest => {%>
+        
+    <%});%>
+    <%}%>
+
+    <%if (user.authorizationKey) { %>
+        <a href="#">Propose a new contest</a>
+    <%}else{%>
+    <form id="new-form" action="/users" method="POST">
+        <label for="Contests">Register for a contest:</label>
+        <select name="Contests" id="">
+            <option value="not this one">not this one</option>
+            <%contest.forEach(cont => {%>
+            <option value="<%= cont.name%>"><%= cont.name%></option>
+            <%});%>
+        </select><br>
+        <input type="submit" value="join contest">
+    </form>
+    <%}%>
+</main>
+<%- include('../partials/footer') %>

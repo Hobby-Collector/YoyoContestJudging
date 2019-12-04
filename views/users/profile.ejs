@@ -13,6 +13,15 @@
 
     <%if (user.authorizationKey) { %>
     <a href="#">Propose a new contest</a>
+
+    <label for="Contests">Remove a user:</label>
+    <select name="Contests">
+        <%user.forEach(cont => {%>
+        <option value="<%= cont.name%>"><%= cont.name%></option>
+        <%});%>
+    </select><br><br>
+    
+
     <%}else{%>
     <form id="new-form" action="/users" method="POST">
         <label for="Contests">Register for a contest:</label>

@@ -4,7 +4,8 @@ const User = require('../models/user');
 module.exports = {
   modify,
   addContest,
-  show
+  show,
+  delete:remove
 };
 
 
@@ -14,7 +15,7 @@ function modify(req, res, next) {
     req.body,
     { new: true }
   ).then(function () {
-    res.redirect('/user');
+    res.redirect('/');
   })
 }
 
@@ -37,6 +38,14 @@ function show(req, res) {
 function addContest(req, res, next) {
   req.user.contests.push(req.body);
   req.user.save(function (err) {
-    res.redirect('/user');
+    res.redirect('/');
   });
+}
+
+function remove(req, res, next) {
+  User.findByIdAndDelete(
+    req.params.id,
+  ).then(function () {
+    res.redirect('/');
+  })
 }

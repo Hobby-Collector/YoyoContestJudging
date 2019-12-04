@@ -21,6 +21,12 @@
             <option value="<%= cont.name%>"><%= cont.name%></option>
             <%});%>
         </select><br><br>
+        <label for="Contests">Choose a division</label>
+        <select name="Contests">
+            <%contest.forEach(cont => {%>
+            <option value="<%= cont.name%>"><%= cont.name%></option>
+            <%});%>
+        </select><br><br>
         <input type="submit" value="join contest">
     </form>
     <%}%>

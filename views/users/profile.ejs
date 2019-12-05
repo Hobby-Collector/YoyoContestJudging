@@ -12,31 +12,8 @@
     </section>
 
     <%if (user.authorizationKey) { %>
-    <a href="#">Propose a new contest</a>
-
-    <label for="Contests">Remove a user:</label>
-    <select name="Contests">
-        <%user.forEach(cont => {%>
-        <option value="<%= cont.name%>"><%= cont.name%></option>
-        <%});%>
-    </select><br><br>
-    
-
+    <%- include('./partials/admin') %>
     <%}else{%>
-    <form id="new-form" action="/users" method="POST">
-        <label for="Contests">Register for a contest:</label>
-        <select name="Contests">
-            <%contest.forEach(cont => {%>
-            <option value="<%= cont.name%>"><%= cont.name%></option>
-            <%});%>
-        </select><br><br>
-        <label for="Contests">Choose a division</label>
-        <select name="Contests">
-            <%contest.forEach(cont => {%>
-            <option value="<%= cont.name%>"><%= cont.name%></option>
-            <%});%>
-        </select><br><br>
-        <input type="submit" value="join contest">
-    </form>
+    <%- include('./partials/player') %>
     <%}%>
 <%- include('../partials/footer') %>

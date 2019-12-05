@@ -1,0 +1,9 @@
+<form id="new-form" action="/users/<%=user._id%>?_method=PUT" method="POST">
+    <label for="contest">Register for a contest:</label>
+    <select name="contest">
+        <%contest.forEach(cont => {%>
+        <option value="<%= cont._id%>"><%= cont.name%></option>
+        <%});%>
+    </select><br><br>
+    <input type="submit" value="join contest">
+</form>

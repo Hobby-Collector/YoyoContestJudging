@@ -1,0 +1,14 @@
+<form action="/contests">
+    <input class="textInput" type="text" value="contest name">
+    <input type="submit">Propose a new contest</input>
+</form>
+
+<form id="delete-form" action="/users/?_method=DELETE" method="POST">
+    <label for="user">Remove a user:</label>
+    <select name="user">
+        <%users.forEach(user => {%>
+        <option value="<%= user._id%>"><%= user.name%></option>
+        <%});%>
+        <input type="submit"></input>
+    </select><br><br>
+</form>

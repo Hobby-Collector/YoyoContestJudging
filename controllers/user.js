@@ -5,19 +5,20 @@ module.exports = {
   modify,
   addContest,
   show,
-  delete:remove
+  destroy
 };
 
 
 function modify(req, res, next) {
-  User.findByIdAndUpdate(
-    req.params.id,
-    req.body,
-    { new: true }
-  ).then(function () {
-    res.redirect('/');
-  })
-}
+  console.log('this is the contest id',req.body.contest);
+
+  console.log('this is the user id',req.params.id);
+  User.findById(req.params.id,function(err,user) {
+    user.contests.push(req.body.contest);
+    user.save(function (err) {
+      res.redirect(`/users/${user.id}`);
+    });
+})};
 
 function show(req, res) {
   User.findById(req.params.id)
@@ -26,10 +27,15 @@ function show(req, res) {
       Contest.find({
         _id: { $nin: user.contests }
       }, function (err, contest) {
-        res.render('users/profile', {
-          title: 'Profile',
-          user,
-          contest
+        User.find({
+          _id: { $nin: user }
+        }, function (err, users) {
+          res.render('users/profile', {
+            title: 'Profile',
+            user,
+            contest,
+            users
+          });
         });
       });
     });
@@ -42,9 +48,10 @@ function addContest(req, res, next) {
   });
 }
 
-function remove(req, res, next) {
+function destroy(req, res, next) {
+  console.log("this is the ID", req.body.user);
   User.findByIdAndDelete(
-    req.params.id,
+    req.body.user
   ).then(function () {
     res.redirect('/');
   })

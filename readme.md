@@ -10,7 +10,7 @@ the yoyo community holds contests throughout the year they range in size and abi
 
 
 <p>The website loads in on this page</p>
-<img src= "Readme/landing page.png">
+<img src= "Readme/landing screen.png">
 
 <p>from there you are able to log into your google user via the login with google button in the corner
 once that process is complete you are redirected home but with one big difference. there is now a profile button</p>

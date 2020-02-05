@@ -50,6 +50,14 @@ main {
   align-items: center;
 }
 
+.index {
+  background-image: url("https://i.imgur.com/U7nO1ma.png");
+  background-size: cover;
+  background-repeat: no-repeat, repeat;
+  height: 60rem; 
+  background-position: center;
+}
+
 h1 {
   margin: 0 0 50px;
 }
@@ -96,6 +104,6 @@ form {
   width: 15rem;
 }
 
-.textInput{
-  color:white;
+.textInput {
+  color: white;
 }

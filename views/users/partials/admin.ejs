@@ -1,5 +1,16 @@
-<form action="/contests">
-    <input class="textInput" type="text" value="contest name">
+<form id="modify-form" action="/contests/" method="POST">
+<select name="id">
+    <%user.contests.forEach(contest => {%>
+            <option value="<%=contest.id%>"><%= contest.name%></option>
+        <%})%>
+    </select>
+    <input type="submit">Add a division</input>
+</form>
+
+<br><br>
+
+<form id="new-form" action="/contests" method="POST">
+    <input class="textInput" name="name" type="text" value="contest name">
     <input type="submit">Propose a new contest</input>
 </form>
 

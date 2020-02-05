@@ -8,11 +8,7 @@ module.exports = {
   destroy
 };
 
-
 function modify(req, res, next) {
-  console.log('this is the contest id',req.body.contest);
-
-  console.log('this is the user id',req.params.id);
   User.findById(req.params.id,function(err,user) {
     user.contests.push(req.body.contest);
     user.save(function (err) {
@@ -24,11 +20,8 @@ function show(req, res) {
   User.findById(req.params.id)
     .populate('contests')
     .exec(function (err, user) {
-      Contest.find({
-        _id: { $nin: user.contests }
-      }, function (err, contest) {
-        User.find({
-          _id: { $nin: user }
+      Contest.find({ _id: { $nin: user.contests }
+      }, function (err, contest) { User.find({_id: { $nin: user }
         }, function (err, users) {
           res.render('users/profile', {
             title: 'Profile',
@@ -49,7 +42,6 @@ function addContest(req, res, next) {
 }
 
 function destroy(req, res, next) {
-  console.log("this is the ID", req.body.user);
   User.findByIdAndDelete(
     req.body.user
   ).then(function () {

@@ -21,6 +21,7 @@ require('./config/passport');
 // require our routes
 var indexRoutes = require('./routes/index');
 var usersRoutes = require('./routes/users');
+var contestsRoutes = require('./routes/contests');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -32,6 +33,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+
 
 app.use(session({
   secret: 'Ok, Boomer',
@@ -45,6 +47,7 @@ app.use(passport.session());
 // mount all routes with appropriate base paths
 app.use('/', indexRoutes);
 app.use('/users', usersRoutes);
+app.use('/contests', contestsRoutes);
 
 // invalid request, send 404 page
 app.use(function(req, res) {
